@@ -1,0 +1,39 @@
+MULTIPROCESSING IN PYTHON:
+
+As CPU manufacturers start adding more and more cores to their processers , creating parallel code is a great way to improve performance. Python introduced multiprocessing module to let us write parallel code.
+
+There are plenty of classes in python multiprocessing module for building a parallel program. Among them the 3 basic classes are
+	1. Process
+	2. Queue
+	3. Lock
+
+
+PROCESS CLASS:
+
+ Two important functions that belongs to process class:
+	1. Start()
+	2. Join()
+
+At first, we need to write the function that will be run by the process. Then we need to instantiate the process object. If we create a object, nothing will happen until we tell it to start processing via start() function. Then the process will run and return the result. After that we tell the process to complete via join() function. Without join() function call, the process will remain idle and wont terminate
+
+So, if you create many processes and don’t terminate them, you may face scarcity of resources.
+
+**** If you want to pass any argument through the process, you need to use args keyword argument.
+
+
+QUEUE CLASS:
+
+Python multiprocessing module provides Queue class that is exactly a FIFO Data Structure
+
+They can store any python object and are extremely useful for sharing data between processes
+Queues are specially useful when passed as parameter to a process target function.
+By using put() function, we can insert data into queue and by using get() function, we can get the data from queue
+
+LOCK CLASS:
+
+It allows code to claim lock so that no other process can execute the code until the lock has been released. So the task of the lock class is mainly two.
+	1. To claim lock
+	2. To release lock
+
+
+Python queue class is already synchronized. That is we don’t need to use lock class to block multiple processes to access the same queue object.
